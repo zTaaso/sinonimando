@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MdSearch } from 'react-icons/md';
 
 import './styles/global.css';
 
-import Home from './pages/Home';
+import Routes from './router';
 
 function App() {
-  return <Home />;
+  return <Routes />;
 }
 
 export default App;
