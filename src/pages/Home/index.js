@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, Content } from './styles.js';
+import { Container, Content, SynonymItem } from './styles.js';
 
 import SearchBar from '../../components/SearchBar';
 
@@ -23,16 +23,19 @@ function Home() {
 
       <Content>
         <ul>
-          <li>
+          <SynonymItem>
             <h2>Tipo</h2>
             <div>
               <ul>
-                <li>sinonimo</li>
-                <li>sinonimo</li>
-                <li>sinonimo</li>
+                <li>
+                  <a>sinonimo,</a>
+                </li>
+                <li>
+                  <a>sinonimo,</a>
+                </li>
               </ul>
             </div>
-          </li>
+          </SynonymItem>
         </ul>
       </Content>
     </Container>
