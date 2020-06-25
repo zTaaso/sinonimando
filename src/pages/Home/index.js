@@ -1,50 +1,63 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import Spinkit from 'react-spinkit';
 
 import { Container, Content, SynonymItem } from './styles.js';
 
 import SearchBar from '../../components/SearchBar';
+import NotFound from '../../components/NotFound';
 
-function Home({ match }) {
+import api from '../../services/api';
+
+function Home({ match, notFound = false }) {
   const history = useHistory();
   const routeWord = match.params.word;
 
   const [synonyms, setSynonyms] = useState([]);
   const [word, setWord] = useState(routeWord);
+  const [didFind, setDidFind] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  async function getSynonyms(word) {
-    // const response = await (
-    //   await fetch(
-    //     `http://sinonimosapi.netlify.com/.netlify/functions/api/?q=${word}`
-    //   ).catch((err) => console.log({ err }))
-    // ).json();
+  const getSynonyms = useCallback(async (word = '') => {
+    setLoading(true);
+    const { data } = await api({ params: { q: word.trim() } });
 
-    const { data: response } = await axios(
-      `http://sinonimosapi.netlify.com/.netlify/functions/api/?q=${word.trim()}`
-    );
-    const synonyms = Object.entries(response).map((synonym) => ({
+    const synonyms = Object.entries(data).map((synonym) => ({
       sort: synonym[0],
       synonyms: synonym[1].map((word, index, arr) => ({
         name: index === arr.length - 1 ? word.concat('.') : word.concat(','),
         isMultiple: word.includes(' '),
       })),
     }));
+
     setSynonyms(synonyms);
-  }
+  }, []);
 
   function handleSynonymClick(word) {
     let formatedWord = word.replace(/(?:\.|,)/, '');
 
     history.push(`/${formatedWord}`);
-    setWord(formatedWord);
-    getSynonyms(formatedWord);
   }
 
   useEffect(() => {
     getSynonyms(routeWord);
     setWord(routeWord);
-  }, [routeWord]);
+  }, [routeWord, getSynonyms]);
+
+  useEffect(() => {
+    console.log(loading);
+  }, [loading]);
+
+  useEffect(() => {
+    setDidFind(!!synonyms[0]);
+    setLoading(false);
+  }, [synonyms]);
+
+  useEffect(() => {
+    if (!didFind) {
+      history.push('/notFound');
+    }
+  }, [didFind, history]);
 
   return (
     <Container>
@@ -53,34 +66,41 @@ function Home({ match }) {
         onWordChange={() => {}}
         wordProp={word}
       />
+      {loading && <Spinkit name="pacman" color="yellow" fadeIn="none" />}
 
-      <Content>
-        <ul>
-          {synonyms.map((synonymItem) => (
-            <SynonymItem key={synonymItem.sort}>
-              <h2>{synonymItem.sort}</h2>
-              <div>
-                <ul>
-                  {synonymItem.synonyms.map((synonym) => (
-                    <li key={synonym.name}>
-                      <button
-                        className={synonym.isMultiple ? 'multiple' : ''}
-                        onClick={() =>
-                          synonym.isMultiple
-                            ? {}
-                            : handleSynonymClick(synonym.name)
-                        }
-                      >
-                        {synonym.name}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </SynonymItem>
-          ))}
-        </ul>
-      </Content>
+      {didFind && !!routeWord && (
+        <Content>
+          <ul>
+            {synonyms.map((synonymItem) => (
+              <SynonymItem key={synonymItem.sort}>
+                <h2>{synonymItem.sort}</h2>
+                <div>
+                  <ul>
+                    {synonymItem.synonyms.map((synonym) => (
+                      <li key={synonym.name}>
+                        <button
+                          className={synonym.isMultiple ? 'multiple' : ''}
+                          onClick={() =>
+                            synonym.isMultiple
+                              ? {}
+                              : handleSynonymClick(synonym.name)
+                          }
+                        >
+                          {synonym.name}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </SynonymItem>
+            ))}
+          </ul>
+        </Content>
+      )}
+
+      {}
+
+      {notFound && <NotFound />}
     </Container>
   );
 }
