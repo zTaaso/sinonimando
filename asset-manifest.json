@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/sinonimando/static/css/main.b6288138.chunk.css",
-    "main.js": "/sinonimando/static/js/main.3c0b0519.chunk.js",
-    "main.js.map": "/sinonimando/static/js/main.3c0b0519.chunk.js.map",
+    "main.js": "/sinonimando/static/js/main.b5209cfe.chunk.js",
+    "main.js.map": "/sinonimando/static/js/main.b5209cfe.chunk.js.map",
     "runtime-main.js": "/sinonimando/static/js/runtime-main.d30269fe.js",
     "runtime-main.js.map": "/sinonimando/static/js/runtime-main.d30269fe.js.map",
-    "static/js/2.3bff0ccd.chunk.js": "/sinonimando/static/js/2.3bff0ccd.chunk.js",
-    "static/js/2.3bff0ccd.chunk.js.map": "/sinonimando/static/js/2.3bff0ccd.chunk.js.map",
+    "static/js/2.d0448f53.chunk.js": "/sinonimando/static/js/2.d0448f53.chunk.js",
+    "static/js/2.d0448f53.chunk.js.map": "/sinonimando/static/js/2.d0448f53.chunk.js.map",
     "index.html": "/sinonimando/index.html",
-    "precache-manifest.d3043102c512f8d5b04389a331e96ff9.js": "/sinonimando/precache-manifest.d3043102c512f8d5b04389a331e96ff9.js",
+    "precache-manifest.065092f7f0693f81328d35673f688e28.js": "/sinonimando/precache-manifest.065092f7f0693f81328d35673f688e28.js",
     "service-worker.js": "/sinonimando/service-worker.js",
     "static/css/main.b6288138.chunk.css.map": "/sinonimando/static/css/main.b6288138.chunk.css.map",
-    "static/js/2.3bff0ccd.chunk.js.LICENSE.txt": "/sinonimando/static/js/2.3bff0ccd.chunk.js.LICENSE.txt"
+    "static/js/2.d0448f53.chunk.js.LICENSE.txt": "/sinonimando/static/js/2.d0448f53.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d30269fe.js",
-    "static/js/2.3bff0ccd.chunk.js",
+    "static/js/2.d0448f53.chunk.js",
     "static/css/main.b6288138.chunk.css",
-    "static/js/main.3c0b0519.chunk.js"
+    "static/js/main.b5209cfe.chunk.js"
   ]
 }
