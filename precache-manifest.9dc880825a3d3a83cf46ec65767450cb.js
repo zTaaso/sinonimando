@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28e36e54ef2e0f2906be30d577794802",
+    "revision": "048fda890ceb3933bc68d647eaf01481",
     "url": "/sinonimando/index.html"
   },
   {
-    "revision": "9b9fbc7c5dbbb3fa3a36",
+    "revision": "bf815e27236e2d5b5b24",
     "url": "/sinonimando/static/css/main.b6288138.chunk.css"
   },
   {
-    "revision": "92b862826516d8178f79",
-    "url": "/sinonimando/static/js/2.d0448f53.chunk.js"
+    "revision": "6162bc862b8c03e90534",
+    "url": "/sinonimando/static/js/2.3f27e8b2.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/sinonimando/static/js/2.d0448f53.chunk.js.LICENSE.txt"
+    "url": "/sinonimando/static/js/2.3f27e8b2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9b9fbc7c5dbbb3fa3a36",
-    "url": "/sinonimando/static/js/main.c2a1d284.chunk.js"
+    "revision": "bf815e27236e2d5b5b24",
+    "url": "/sinonimando/static/js/main.06ac0b10.chunk.js"
   },
   {
     "revision": "3c86950dd2d05486855d",

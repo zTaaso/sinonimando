@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sinonimando/precache-manifest.2a1bf7827d2c177647990d1f0b9dfa00.js"
+  "/sinonimando/precache-manifest.9dc880825a3d3a83cf46ec65767450cb.js"
 );
 
 self.addEventListener('message', (event) => {
