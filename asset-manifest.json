@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/sinonimando/static/css/main.b6288138.chunk.css",
-    "main.js": "/sinonimando/static/js/main.b5209cfe.chunk.js",
-    "main.js.map": "/sinonimando/static/js/main.b5209cfe.chunk.js.map",
+    "main.js": "/sinonimando/static/js/main.c2a1d284.chunk.js",
+    "main.js.map": "/sinonimando/static/js/main.c2a1d284.chunk.js.map",
     "runtime-main.js": "/sinonimando/static/js/runtime-main.d30269fe.js",
     "runtime-main.js.map": "/sinonimando/static/js/runtime-main.d30269fe.js.map",
     "static/js/2.d0448f53.chunk.js": "/sinonimando/static/js/2.d0448f53.chunk.js",
     "static/js/2.d0448f53.chunk.js.map": "/sinonimando/static/js/2.d0448f53.chunk.js.map",
     "index.html": "/sinonimando/index.html",
-    "precache-manifest.065092f7f0693f81328d35673f688e28.js": "/sinonimando/precache-manifest.065092f7f0693f81328d35673f688e28.js",
+    "precache-manifest.2a1bf7827d2c177647990d1f0b9dfa00.js": "/sinonimando/precache-manifest.2a1bf7827d2c177647990d1f0b9dfa00.js",
     "service-worker.js": "/sinonimando/service-worker.js",
     "static/css/main.b6288138.chunk.css.map": "/sinonimando/static/css/main.b6288138.chunk.css.map",
     "static/js/2.d0448f53.chunk.js.LICENSE.txt": "/sinonimando/static/js/2.d0448f53.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d30269fe.js",
     "static/js/2.d0448f53.chunk.js",
     "static/css/main.b6288138.chunk.css",
-    "static/js/main.b5209cfe.chunk.js"
+    "static/js/main.c2a1d284.chunk.js"
   ]
 }
