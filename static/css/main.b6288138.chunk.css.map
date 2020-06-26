@@ -1,0 +1,1 @@
+{"version":3,"sources":["global.css"],"names":[],"mappings":"AAAA,EACE,QAAS,CACT,SAAU,CACV,qBACF,CAEA,gBAGE,eAAgB,CAChB,WACF,CAEA,OACE,SACF","file":"main.b6288138.chunk.css","sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\n#root {\n  min-height: 100%;\n  height: 100%;\n}\n\n*:focus {\n  outline: 0;\n}\n"]}
