@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { MdSearch } from 'react-icons/md';
 
 import { StatusBar } from './styles';
 
-function SearchBar({ onSearch, onWordChange, wordProp }) {
+function SearchBar({ onSearch, onWordChange, wordProp = '' }) {
+  const history = useHistory();
   const [word, setWord] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSearch(word);
+    // onSearch(word);
+    history.push(`/${word}`);
   }
 
   useEffect(() => {
-    console.log(wordProp);
     setWord(wordProp);
   }, [wordProp]);
 
