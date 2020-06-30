@@ -1,15 +1,22 @@
 import React from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, HashRouter, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
 function Routes() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
-        <Route path="/:word" exact component={Home} />
+        <Route path="/" exact component={Home} />
+        <Route
+          path="/notFound"
+          exact
+          render={(props) => <Home {...props} notFound />}
+        />
+
+        <Route path="/:word" component={Home} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
