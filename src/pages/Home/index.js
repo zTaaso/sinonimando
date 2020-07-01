@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import Spinkit from 'react-spinkit';
 
-import { Container, Content, SynonymItem } from './styles.js';
+import { Container } from './styles.js';
 
 import SearchBar from '../../components/SearchBar';
 import NotFound from '../../components/NotFound';
+
+import SynonymsContent from './components/SynonymsContent';
 
 import api from '../../services/api';
 
@@ -31,27 +32,16 @@ function Home({ match, notFound = false }) {
     }));
 
     setSynonyms(synonyms);
+    setLoading(false);
+    setDidFind(!!synonyms[0]);
   }, []);
-
-  function handleSynonymClick(word) {
-    let formatedWord = word.replace(/(?:\.|,)/, '');
-
-    history.push(`/${formatedWord}`);
-  }
 
   useEffect(() => {
     getSynonyms(routeWord);
     setWord(routeWord);
   }, [routeWord, getSynonyms]);
 
-  useEffect(() => {
-    console.log(loading);
-  }, [loading]);
-
-  useEffect(() => {
-    setDidFind(!!synonyms[0]);
-    setLoading(false);
-  }, [synonyms]);
+  useEffect(() => {}, [synonyms]);
 
   useEffect(() => {
     if (!didFind) {
@@ -66,41 +56,17 @@ function Home({ match, notFound = false }) {
         onWordChange={() => {}}
         wordProp={word}
       />
-      {loading && <Spinkit name="pacman" color="yellow" fadeIn="none" />}
 
-      {didFind && !!routeWord && (
-        <Content>
-          <ul>
-            {synonyms.map((synonymItem) => (
-              <SynonymItem key={synonymItem.sort}>
-                <h2>{synonymItem.sort}</h2>
-                <div>
-                  <ul>
-                    {synonymItem.synonyms.map((synonym) => (
-                      <li key={synonym.name}>
-                        <button
-                          className={synonym.isMultiple ? 'multiple' : ''}
-                          onClick={() =>
-                            synonym.isMultiple
-                              ? {}
-                              : handleSynonymClick(synonym.name)
-                          }
-                        >
-                          {synonym.name}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </SynonymItem>
-            ))}
-          </ul>
-        </Content>
+      {notFound ? (
+        <NotFound />
+      ) : (
+        <SynonymsContent
+          synonyms={synonyms}
+          didFind={didFind}
+          word={word}
+          loading={loading}
+        />
       )}
-
-      {}
-
-      {notFound && <NotFound />}
     </Container>
   );
 }
