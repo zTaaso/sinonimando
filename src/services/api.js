@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://sinonimosapi.netlify.com/.netlify/functions/api/',
+  baseURL:
+    'https://cors-anywhere.herokuapp.com/https://sinonimosapi.netlify.com/.netlify/functions/api/',
   method: 'GET',
 });
 
