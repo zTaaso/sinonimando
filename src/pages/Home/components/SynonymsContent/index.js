@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Spinkit from 'react-spinkit';
 
 import { Content, SynonymItem, Loading } from './styles.js';
 
-function SynonymsContent({
-  synonyms = [],
-  word = '',
-  loading = false,
-  didFind = true,
-}) {
+function SynonymsContent({ synonyms = [], word = '', loading = false }) {
   const history = useHistory();
 
   function handleSynonymClick(word) {
