@@ -7,7 +7,7 @@ function Routes() {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact render={(props) => <Home {...props} isHome />} />
         <Route
           path="/notFound"
           exact
