@@ -3,21 +3,23 @@ import { useHistory } from 'react-router-dom';
 
 import { Container } from './styles.js';
 
-import SearchBar from '../../components/SearchBar';
-import NotFound from '../../components/NotFound';
+import SearchBar from './components/SearchBar';
 
+import NotFound from './components/NotFound';
 import SynonymsContent from './components/SynonymsContent';
+import Welcome from './components/Welcome';
 
 import api from '../../services/api';
 
-function Home({ match, notFound = false }) {
+function Home({ match, notFound = false, isHome }) {
   const history = useHistory();
   const routeWord = match.params.word;
+  const { url } = match;
 
   const [synonyms, setSynonyms] = useState([]);
   const [word, setWord] = useState(routeWord);
-  const [didFind, setDidFind] = useState(true);
   const [loading, setLoading] = useState(false);
+  // const [isHome, setIsHome] = useState(url === '/');
 
   const getSynonyms = useCallback(async (word = '') => {
     setLoading(true);
@@ -33,21 +35,20 @@ function Home({ match, notFound = false }) {
 
     setSynonyms(synonyms);
     setLoading(false);
-    setDidFind(!!synonyms[0]);
   }, []);
+
+  useEffect(() => {
+    if (!synonyms[0]) {
+      history.push('/notFound');
+    } else {
+      // setIsHome(false);
+    }
+  }, [history, synonyms]);
 
   useEffect(() => {
     getSynonyms(routeWord);
     setWord(routeWord);
   }, [routeWord, getSynonyms]);
-
-  useEffect(() => {}, [synonyms]);
-
-  useEffect(() => {
-    if (!didFind) {
-      history.push('/notFound');
-    }
-  }, [didFind, history]);
 
   return (
     <Container>
@@ -55,17 +56,15 @@ function Home({ match, notFound = false }) {
         onSearch={getSynonyms}
         onWordChange={() => {}}
         wordProp={word}
+        routeWord={routeWord}
       />
 
-      {notFound ? (
+      {isHome ? (
+        <Welcome />
+      ) : notFound ? (
         <NotFound />
       ) : (
-        <SynonymsContent
-          synonyms={synonyms}
-          didFind={didFind}
-          word={word}
-          loading={loading}
-        />
+        <SynonymsContent synonyms={synonyms} word={word} loading={loading} />
       )}
     </Container>
   );
