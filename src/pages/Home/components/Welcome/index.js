@@ -11,7 +11,7 @@ function Welcome() {
 
       <h1>Bem vindo!</h1>
 
-      <p>Procure por um sinônimo na barra de pesquisa acima.</p>
+      <p>Comece procurando por um sinônimo na barra de pesquisa acima.</p>
     </Content>
   );
 }
