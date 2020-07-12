@@ -1,37 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { MdSearch } from 'react-icons/md';
 
 import { StatusBar } from './styles';
 
-function SearchBar({ routeWord, onWordChange, wordProp = '' }) {
+import { SynonymsContext } from '../../../../context/Synonyms';
+
+function SearchBar() {
   const history = useHistory();
-  const [word, setWord] = useState('');
+  const context = useContext(SynonymsContext);
+
+  const { wordState } = context;
+
+  const { word } = wordState;
+
+  const [currentWord, setCurrentWord] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (routeWord === word) return;
+    if (currentWord === word) return;
 
-    history.push(`/${word}`);
+    history.push(`/${currentWord}`);
   }
 
   useEffect(() => {
-    setWord(wordProp);
-  }, [wordProp]);
+    setCurrentWord(word);
+  }, [word]);
 
   return (
     <StatusBar>
-      <h1>Sinonimando</h1>
+      <h1 onClick={() => history.push('/')}>Sinonimando</h1>
 
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           onChange={(evt) => {
-            onWordChange(evt.target.value);
-            setWord(evt.target.value);
+            setCurrentWord(evt.target.value);
           }}
-          value={word}
+          value={currentWord || ''}
           placeholder="Procure por um sinônimo"
         />
         <button type="submit">
