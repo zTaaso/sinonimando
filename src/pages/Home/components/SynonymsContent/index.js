@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Spinkit from 'react-spinkit';
 
 import { Content, SynonymItem, Loading } from './styles.js';
 
-function SynonymsContent({ synonyms = [], word = '', loading = false }) {
+import { SynonymsContext } from '../../../../context/Synonyms';
+
+function SynonymsContent({ match }) {
+  const routeWord = match.params.word;
+
   const history = useHistory();
+  const context = useContext(SynonymsContext);
+
+  const { synonyms = [], wordState, loading = false } = context;
+  const { word, setWord } = wordState;
 
   function handleSynonymClick(word) {
     let formatedWord = word.replace(/(?:\.|,)/, '');
 
     history.push(`/${formatedWord}`);
   }
+
+  useEffect(() => {
+    setWord(routeWord);
+  }, [history, routeWord, setWord, word]);
 
   return (
     <Content>
