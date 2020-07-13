@@ -7,7 +7,7 @@
 <div/>
   
   
-  ## 🖥 Technologies
+## 🖥 Technologies
 
 The project was developed with the following technologies:
 
