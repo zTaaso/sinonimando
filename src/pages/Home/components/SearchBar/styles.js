@@ -17,6 +17,7 @@ export const StatusBar = styled.div`
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
     border-bottom: 1px solid #b5076b;
+    cursor: pointer;
   }
 
   form {
