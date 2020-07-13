@@ -4,9 +4,10 @@
   <p align="center">
     Sinonimando is a simple React project with the purpose of fetching portuguese synonyms.
   <p/>
- <div/>
+<div/>
   
- ## 🖥 Technologies
+  
+  ## 🖥 Technologies
 
 The project was developed with the following technologies:
 
@@ -22,5 +23,10 @@ The project was developed with the following technologies:
 - [React-Spinkit](https://github.com/KyleAMathews/react-spinkit)
 
 </details>
+
+## 👁 See the website yourself
+> The project was deployed using **github-pages**.
+
+Visit the website by clicking [here](https://ztaaso.github.io/sinonimando)!
 
 
