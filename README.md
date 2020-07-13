@@ -3,8 +3,8 @@
 <div align="center">
   <p align="center">
     Sinonimando is a simple React project with the purpose of fetching portuguese synonyms.
-  <p/>
-<div/>
+  </p>
+</div>
   
   
 ## 🖥 Technologies
